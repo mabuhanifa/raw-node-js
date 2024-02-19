@@ -19,3 +19,5 @@ module.exports = {
   privateKey,
   publicKey,
 };
+
+log(privateKey, publicKey);
