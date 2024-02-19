@@ -10,9 +10,12 @@ const { privateKey, publicKey } = generateKeyPairSync("rsa", {
   privateKeyEncoding: {
     type: "pkcs8",
     format: "pem",
-    cipher: "aes-256-cbc",
-    passphrase: "top secret",
+    // cipher: "aes-256-cbc",
+    // passphrase: "top secret",
   },
 });
 
-log(privateKey, publicKey);
+module.exports = {
+  privateKey,
+  publicKey,
+};
