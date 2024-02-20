@@ -20,4 +20,4 @@ module.exports = {
   publicKey,
 };
 
-log(privateKey, publicKey);
+// log(privateKey, publicKey);
