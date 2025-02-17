@@ -6,6 +6,7 @@ Description: A RESTfull API for upTime monitoring
 */
 
 const http = require("http");
+const { handleReqRes } = require("./helpers/handleReqRes");
 
 const app = {};
 
@@ -20,9 +21,6 @@ app.createServer = () => {
   });
 };
 
-app.handleReqRes = (req, res) => {
-  //   res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello World");
-};
+app.handleReqRes = handleReqRes;
 
 app.createServer();
