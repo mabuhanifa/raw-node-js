@@ -56,6 +56,22 @@ class MiniExpress {
     this.middleware.push(callback);
   }
 
+  get(path, callback) {
+    this.routes.GET[path] = callback;
+  }
+
+  post(path, callback) {
+    this.routes.POST[path] = callback;
+  }
+
+  put(path, callback) {
+    this.routes.PUT[path] = callback;
+  }
+
+  delete(path, callback) {
+    this.routes.DELETE[path] = callback;
+  }
+
   useRouter(prefix, router) {
     for (const method in router.routes) {
       for (const path in router.routes[method]) {
@@ -72,14 +88,10 @@ class MiniExpress {
     req.on("end", () => {
       try {
         req.body = JSON.parse(body);
-        callback();
-        return;
+      } catch (e) {
         req.body = {};
-        callback();
-      } catch (error) {
-        req.body = {};
-        callback();
       }
+      callback();
     });
   }
 
